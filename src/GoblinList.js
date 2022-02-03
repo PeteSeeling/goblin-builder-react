@@ -5,6 +5,7 @@ export default function GoblinList({ goblins, handleDeleteGoblin }) {
   
   return (
     <div className='goblin-list quarter'>
+     
       {goblins.map((goblin, i) => <Goblin
         handleDeleteGoblin={handleDeleteGoblin}
         key={`${goblin.name}-${i}`} {...goblin} />)
