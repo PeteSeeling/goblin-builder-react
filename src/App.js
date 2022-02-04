@@ -26,36 +26,38 @@ function App() {
 
     setGoblins(...goblins, newGoblin);
   }
-  setGoblinFormName('');
-  setGoblinFormHP(1);
-  setGoblinFormColor('lightgreen');
+  // {
+  //   setGoblinFormName('');
+  //   setGoblinFormHP(1);
+  //   setGoblinFormColor('lightgreen');
+  // }
     // on submit, make a new goblin object with a random id, a name that comes from the form state, an hp that comes from the form state, and a color that comes from the form state
 
     // update the allGoblins array. Add the new goblin to the allGoblins array immutably.
     
     // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
-}
 
-function handleDeleteGoblin(id) {
+
+  function handleDeleteGoblin(id) {
     // find the index of the goblin in allGoblins with this id
-  const index = goblins.findIndex(goblin => goblin.id === id);
+    const index = goblins.findIndex(goblin => goblin.id === id);
     // use splice to delete the goblin object at this index
-  goblins.splice(index, 1);
+    goblins.splice(index, 1);
     // update the allGoblins array immutably to this new, smaller array
-  setGoblins(...goblins);
-}
+    setGoblins([...goblins]);
+  }
 
-function handleFilterGoblins(search) {
+  function handleFilterGoblins(search) {
     // use the filter method to get an array of goblins whose name includes this search argument
-  if (search) {
-    const filteredGoblins = goblins.filter(goblin => goblin.name.includes(search));
+    if (search) {
+      const filteredGoblins = goblins.filter(goblin => goblin.name.includes(search));
 
-    setFilteredGoblins(filteredGoblins);
+      setFilteredGoblins(filteredGoblins);
+    }
+    else {
+      setFilteredGoblins(goblins);
+    }
   }
-  else {
-    setFilteredGoblins(goblins);
-  }
-}
     // if there is a search argument, set the filtered goblins to the filtered goblins
     // if the search argument is undefined, set the filtered goblins in state to just be the array of all goblins
 
@@ -66,10 +68,10 @@ function handleFilterGoblins(search) {
       <div className='current-goblin quarter'>
         <Goblin goblin={{
 
-id: Math.ceil(Math.random() * 100),
-name: goblinFormName,
-hp: goblinFormHP,
-color: goblinFormColor
+          id: Math.ceil(Math.random() * 100),
+          name: goblinFormName,
+          hp: goblinFormHP,
+          color: goblinFormColor
           /* 
             use the goblin form state to make a goblin object and to display it. 
             This will let the user see the current form state 
@@ -103,11 +105,12 @@ color: goblinFormColor
         */
       />
       <GoblinList 
-        goblins={[]} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
+        goblins={[filteredGoblins]} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
         handleDeleteGoblin={handleDeleteGoblin} // note that the goblin list has access to the ability to delete
       />
     </div>
   );
 
-
+}
 export default App;
+      
