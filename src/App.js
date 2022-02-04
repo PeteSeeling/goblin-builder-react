@@ -66,6 +66,7 @@ function App() {
   return (
     <div className="App">
       <div className='current-goblin quarter'>
+        <h3>{goblinFormName}</h3>
         <Goblin goblin={{
 
           id: Math.ceil(Math.random() * 100),
@@ -76,7 +77,10 @@ function App() {
             use the goblin form state to make a goblin object and to display it. 
             This will let the user see the current form state 
           */
+      
+       
         }}/>
+        <h4>{goblinFormHP}</h4>
       </div>
       <div className='goblin-filter quarter'>
         Filter Goblins
