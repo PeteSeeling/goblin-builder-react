@@ -2,7 +2,7 @@ import React from 'react';
 import Goblin from './Goblin';
 
 export default function GoblinList({ goblins, handleDeleteGoblin }) {
-  
+  console.log(goblins);
   return (
     <div className='goblin-list quarter'>
      

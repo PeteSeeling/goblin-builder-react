@@ -1,21 +1,19 @@
 import React from 'react';
 
 
-export default function GoblinForm({ goblinFormColor, setGoblinFormColor, goblinFormHP, setGoblinFormHP, goblinFormName, setGoblinFormName })
+export default function GoblinForm({ goblinFormColor, setGoblinFormColor, goblinFormHP, setGoblinFormHP, goblinFormName, setGoblinFormName, submitGoblin })
 {
-  function handleSubmit(e){
-    e.preventDefault();
-    const newGoblin = {
-      id: Math.ceil(Math.random() * 100),
-      name: goblinFormName,
-      hp: goblinFormHP,
-      color: goblinFormColor
-    };
-    setGoblinFormName('');
-    setGoblinFormColor('');
-    setGoblinFormHP(1);
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   const newGoblin = {
+  //     id: Math.ceil(Math.random() * 100),
+  //     name: goblinFormName,
+  //     hp: goblinFormHP,
+  //     color: goblinFormColor
+  //   };
+  
 
-  }
+  // }
   
   return (
     <div className='goblin-form-container quarter'>
@@ -24,7 +22,7 @@ export default function GoblinForm({ goblinFormColor, setGoblinFormColor, goblin
       Note that you don't need to define an anonymous function--you can just name the submitGoblin prop here and it will work.
       Take a minute to try and puzzle out why that is: how is this function different from other functions, 
       where you do need to create an anonymous function in the `onClick` or `onSubmit` spot? */}
-      <form onSubmit={handleSubmit} className='goblin-form'>
+      <form onSubmit={submitGoblin} className='goblin-form'>
         <label>
             Name
           {/* onChange, use the prop setGoblinFormName to set the parent state */}
