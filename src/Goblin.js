@@ -7,7 +7,7 @@ export default function Goblin({ name, handleDeleteGoblin, hp, color, id }) {
       className='goblin' 
       onClick={() => handleDeleteGoblin && handleDeleteGoblin({ id })}>
       <h3>{ name }</h3>  
-      <img src="goblin.png" style={{ backgroundColor: { color } }} />
+      <img src="goblin.png" style={{ backgroundColor: color }} />
       <p>{ hp } HP</p>
     </div>
   );
