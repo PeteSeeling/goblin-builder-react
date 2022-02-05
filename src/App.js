@@ -55,7 +55,7 @@ function App() {
     if (search) {
       const filteredGoblins = goblins.filter(goblin => goblin.name.includes(search));
 
-      setFilteredGoblins(filteredGoblins);
+      search ? setFilteredGoblins(filteredGoblins) : setFilteredGoblins(filteredGoblins);
     }
     else {
       setFilteredGoblins(goblins);
@@ -85,7 +85,7 @@ function App() {
         }}/>
         <h4>{goblinFormHP}</h4>
       </div>
-      <div className='goblin-filter quarter'>
+      <div className='goblin-filter quarter' >
         Filter Goblins
         {/* note that handleFilterGoblins is defined upstairs. This is where the allGoblins array gets filtered */}
         <input onChange={(e) => handleFilterGoblins(e.target.value)} />
