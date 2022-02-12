@@ -25,6 +25,7 @@ function App() {
     };
 
     setGoblins([...goblins, newGoblin]);
+    setFilteredGoblins([...goblins, newGoblin]);
     setGoblinFormName('');
     setGoblinFormColor('');
     setGoblinFormHP(1);
@@ -70,7 +71,6 @@ function App() {
         <h3>{goblinFormName}</h3>
         <Goblin goblin={{
 
-         
           name: goblinFormName,
           hp: goblinFormHP,
           color: goblinFormColor
@@ -110,7 +110,7 @@ function App() {
         */
       />
       <GoblinList 
-        goblins={goblins} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
+        goblins ={ filteredGoblins ? filteredGoblins : goblins } // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
         handleDeleteGoblin={handleDeleteGoblin} // note that the goblin list has access to the ability to delete
       />
     </div>
@@ -118,4 +118,3 @@ function App() {
 
 }
 export default App;
-      
